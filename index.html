@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кодирование информации — слайд</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .slide {
+    width: 1100px;
+    max-width: 100%;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 24px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    color: #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .slide::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -80px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .icon-badge {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(59,130,246,0.4);
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.15;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+    margin: 6px 0 28px 68px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(59,130,246,0.4), transparent);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .card {
+    background: rgba(30,41,59,0.7);
+    border: 1px solid rgba(148,163,184,0.15);
+    border-radius: 16px;
+    padding: 18px 18px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(59,130,246,0.4);
+  }
+  .card .emoji {
+    font-size: 22px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+  }
+  .card p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #94a3b8;
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #60a5fa;
+    background: rgba(59,130,246,0.12);
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(148,163,184,0.12);
+    position: relative;
+    z-index: 1;
+  }
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #64748b;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #3b82f6;
+    box-shadow: 0 0 8px #3b82f6;
+  }
+  .footer-right {
+    font-size: 12.5px;
+    color: #475569;
+    font-weight: 500;
+  }
+  .highlight {
+    color: #93c5fd;
+    font-weight: 600;
+  }
+  max-width: 800px {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 26px; }
+    .slide { padding: 32px 28px; }
+  }
+  max-width: 520px {
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 22px; }
+    .subtitle { margin-left: 0; }}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="icon-badge">🔢</div>
+    <h1>Кодирование информации</h1>
+  </div>
+  <div class="subtitle">От узелкового письма до двоичного кода: как данные превращаются в нули и единицы</div>
+  <div class="divider"></div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="emoji">📖</span>
+      <h3>Что такое кодирование?</h3>
+      <p>Преобразование информации в форму, пригодную для передачи, хранения и автоматической обработки. Обратный процесс — <span class="highlight">декодирование</span>.</p>
+      <span class="tag">Определение</span>
+    </div>
+
+    <div class="card">
+      <span class="emoji">🎯</span>
+      <h3>Цели кодирования</h3>
+      <p>Сжатие данных, защита (шифрование), унификация стандартов и автоматизация обработки в вычислительной технике.</p>
+      <span class="tag">4 цели</span>
+    </div>
+
+    <div class="card">
+      <span class="emoji">🔑</span>
+      <h3>Ключевые термины</h3>
+      <p><span class="highlight">Код</span> — система обозначений. <span class="highlight">Алфавит</span> — набор символов. <span class="highlight">Мощность</span> — их количество. <span class="highlight">Бит</span> — 0 или 1.</p>
+      <span class="tag">Понятия</span>
+    </div>
+
+    <div class="card">
+      <span class="emoji">📜</span>
+      <h3>История</h3>
+      <p>Кипу инков → скитала и шифр Цезаря → азбука Морзе → ASCII (1963) → Unicode и квантовое кодирование.</p>
+      <span class="tag">От древности до XXI в.</span>
+    </div>
+
+    <div class="card">
+      <span class="emoji">⚖️</span>
+      <h3>Классификация</h3>
+      <p><span class="highlight">Аналоговое</span> (непрерывный сигнал) и <span class="highlight">дискретное</span> (цифровое). <span class="highlight">Равномерное</span> (ASCII, 8 бит) и <span class="highlight">неравномерное</span> (Морзе, Хаффман).</p>
+      <span class="tag">2 оси</span>
+    </div>
+
+    <div class="card">
+      <span class="emoji">💻</span>
+      <h3>Двоичный код</h3>
+      <p>Универсальный язык техники: любая информация — текст, звук, графика, числа — представляется последовательностью <span class="highlight">нулей и единиц</span>.</p>
+      <span class="tag">Основа компьютеров</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      <span class="dot"></span>
+      <span>Информатика · Реферат</span>
+    </div>
+    <div class="footer-right">4 типа данных: текст · графика · звук · числа</div>
+  </div>
+</div>
+</body>
+</html>
